@@ -29,20 +29,20 @@ int main(int ac, char **av)
                 exit(126);
             if (errno == ENOENT)
             {
-                _eputs(av[0]);
-                _eputs(": 0: Can't open ");
-                _eputs(av[1]);
-                _eputchar('\n');
-                _eputchar(MY_BUF_FLUSH);
+                puts(av[0]);
+                puts(": 0: Can't open ");
+                puts(av[1]);
+                putchar('\n');
+                putchar(MY_BUF_FLUSH);
                 exit(127);
             }
-            return MY_EXIT_FAILURE;
+            return (EXIT_FAILURE);
         }
         info->readfd = fd;
     }
     populate_env_list(info);
     read_history(info);
     my_hsh(info, av);
-    return MY_EXIT_SUCCESS;
+    return (EXIT_SUCCESS);
 }
 
